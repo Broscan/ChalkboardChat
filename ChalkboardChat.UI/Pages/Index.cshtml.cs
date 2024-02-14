@@ -2,13 +2,13 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace ChalkboardChat.UI.Pages
 {
-	public class IndexModel : PageModel
-	{
+    public class IndexModel : PageModel
+    {
 
-		public void OnGet()
-		{
+        public void OnGet()
+        {
+            RedirectToPage("/Privacy");
 
-			RedirectToPage("/Member/Login");
-		}
-	}
+        }
+    }
 }

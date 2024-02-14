@@ -39,8 +39,8 @@ namespace ChalkboardChat.UI.Pages.Account
             {
                 // Lyckats skapa en user
                 IdentityUser? userToLogIn = await _userManager.FindByNameAsync(Username!);
-                // Logga in
 
+                // Logga in
                 var signInResult = await _signInManager.PasswordSignInAsync(userToLogIn!, Password!, false, false);
 
                 if (signInResult.Succeeded)
