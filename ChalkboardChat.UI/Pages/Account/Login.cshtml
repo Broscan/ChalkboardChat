@@ -1,0 +1,21 @@
+﻿@page
+@model ChalkboardChat.UI.Pages.Account.LoginModel
+@{
+}
+
+<form method="post">
+	<input type="text" placeholder="Username" asp-for="Username" />
+	<input type="password" placeholder="Password" asp-for="Password" />
+	<input type="submit" value="Log In" />
+</form>
+
+@* @if (Model.Username.Contains(Username) && Model.Password.Contains(password))
+{
+	<h1>Succesfully logged in!</h1>
+}
+else
+{
+	<h1>Incorrect username or password!</h1>
+	<h2>Try again!</h2>
+} *@
+
