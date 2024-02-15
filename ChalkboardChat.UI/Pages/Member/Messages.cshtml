@@ -10,6 +10,11 @@
 
 @if (signedInUser.IsSignedIn(User))
 {
+
+    <h1>Welcome @User.Identity.Name.ToLower()</h1>
+    <hr />
+
+    <h2>Enter your ideas for the Chalkboard below:</h2>
     <div>
         <form method="post">
             <div class="form-group">
@@ -19,6 +24,7 @@
             <button type="submit" class="btn btn-primary">Post Message</button>
         </form>
     </div>
+
    
 
   @*   Displaya dom i en div bara så länge *@
@@ -35,4 +41,6 @@
         }
     </div>
 
+
 }
+

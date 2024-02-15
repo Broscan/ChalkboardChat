@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ChalkboardChat.UI.Migrations.AppDb
 {
     /// <inheritdoc />
-    public partial class initialcreate : Migration
+    public partial class SecondInitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

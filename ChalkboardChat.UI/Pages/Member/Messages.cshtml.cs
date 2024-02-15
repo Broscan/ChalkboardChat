@@ -13,6 +13,8 @@ namespace ChalkboardChat.UI.Pages.Member
         private readonly IRepositoryMessage _messageRepository;
 
         public string? Username { get; set; }
+
+        // Denna property kanske inte behÃ¶ver skickas med ?
         public string? Password { get; set; }
         [BindProperty]
         public string? Message { get; set; }
@@ -26,13 +28,13 @@ namespace ChalkboardChat.UI.Pages.Member
         }
         public async Task OnGetAsync()
         {
+
             await _signInManager.UserManager.GetUserAsync(HttpContext.User);
-            // Hämta alla messages från databasen och displaya direct i onget
+            // Hï¿½mta alla messages frï¿½n databasen och displaya direct i onget
             Messages = await _messageRepository.GetMessagesFromDatabase();
 
-            // Från Olivers Crypto
+            // Frï¿½n Olivers Crypto
             Messages = Messages.OrderByDescending(m => m.Date).ToList();
-
         }
 
         public async Task<IActionResult> OnPostAsync()
