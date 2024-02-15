@@ -28,13 +28,13 @@ namespace ChalkboardChat.UI.Pages.Member
         }
         public async Task OnGetAsync()
         {
-
             await _signInManager.UserManager.GetUserAsync(HttpContext.User);
             // H�mta alla messages fr�n databasen och displaya direct i onget
             Messages = await _messageRepository.GetMessagesFromDatabase();
-
+            
             // Fr�n Olivers Crypto
             Messages = Messages.OrderByDescending(m => m.Date).ToList();
+
         }
 
         public async Task<IActionResult> OnPostAsync()
@@ -54,6 +54,12 @@ namespace ChalkboardChat.UI.Pages.Member
             }
 
             return RedirectToPage("/Member/Messages");
+        }
+
+        public async Task<IActionResult> OnPostSignOut()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToPage("/Account/Login");
         }
     }
 }
