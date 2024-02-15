@@ -1,4 +1,7 @@
-﻿namespace ChalkboardChat.Data.AppDbContext
+﻿using ChalkboardChat.Data.Model;
+using Microsoft.EntityFrameworkCore;
+
+namespace ChalkboardChat.Data.AppDbContext
 {
     public class AppDbContext : DbContext
     {

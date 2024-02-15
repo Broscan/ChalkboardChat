@@ -1,4 +1,7 @@
+using ChalkboardChat.Data.AppDbContext;
+using ChalkboardChat.Data.AuthDbContext;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
