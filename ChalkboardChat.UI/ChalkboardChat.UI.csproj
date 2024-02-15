@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ChalkboardChat.App\ChalkboardChat.App.csproj" />
+    <ProjectReference Include="..\ChalkboardChat.Data\ChalkboardChat.Data.csproj" />
   </ItemGroup>
 
 </Project>

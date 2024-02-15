@@ -7,15 +7,22 @@
 
 @if (signedInUser.IsSignedIn(User))
 {
+
     <h1>Welcome @User.Identity.Name.ToLower()</h1>
     <hr />
 
     <h2>Enter your ideas for the Chalkboard below:</h2>
 
+      <form method="post">
+        <textarea name="message" placeholder="Enter your message"></textarea>
+        <button type="submit">Post Message</button>
+    </form>
+  
     @* foreach()
     { *@
-    <div>
+    <div>  
 
     </div>
     }
+
 }
