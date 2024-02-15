@@ -22,6 +22,7 @@
                 <input type="text" id="message" name="message" class="form-control" />
             </div>
             <button type="submit" class="btn btn-primary">Post Message</button>
+            <button type="submit" class="btn btn-secondary" asp-page-handler="SignOut">Sign out</button>
         </form>
     </div>
 
@@ -29,14 +30,28 @@
 
   @*   Displaya dom i en div bara så länge *@
 
-    <div>
+    <div>      
         @foreach (var message in Model.Messages)
         {
+            if(message.Username == User.Identity.Name)
+            {
+                
+            <div class="message bg-info">
+                <p>@message.Username:</p>
+                <p>@message.Message</p>
+
+                <hr />
+                </div>
+            }
+            else
+            {          
             <div class="message">
                 <p>@message.Username:</p>
                 <p>@message.Message</p>
+
                 <hr />
             </div>
+            }
         }
     </div>
 
