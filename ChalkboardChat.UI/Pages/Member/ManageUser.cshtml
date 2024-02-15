@@ -2,3 +2,10 @@
 @model ChalkboardChat.UI.Pages.Member.ManageUserModel
 @{
 }
+
+
+<form method="post">
+	<input type="text" placeholder="New username" asp-for="NewUsername" />
+	<input type="password" placeholder=" new Password" asp-for="NewPassword" />
+	<input type="submit" value="Register" />
+</form>

@@ -20,6 +20,7 @@ namespace ChalkboardChat.UI.Pages.Member
         public string? Message { get; set; }
         public List<ChalkboardModel> Messages { get; set; }
 
+
         public MessagesModel(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, IRepositoryMessage messageRepository)
         {
             _userManager = userManager;
@@ -28,10 +29,13 @@ namespace ChalkboardChat.UI.Pages.Member
         }
         public async Task OnGetAsync()
         {
-            await _signInManager.UserManager.GetUserAsync(HttpContext.User);
+            var user = await _signInManager.UserManager.GetUserAsync(HttpContext.User);
+            // StorE:a den "gamla" UserName till UserName
+            Username = user.UserName; // <-1
+
             // H�mta alla messages fr�n databasen och displaya direct i onget
             Messages = await _messageRepository.GetMessagesFromDatabase();
-            
+
             // Fr�n Olivers Crypto
             Messages = Messages.OrderByDescending(m => m.Date).ToList();
 
@@ -47,7 +51,7 @@ namespace ChalkboardChat.UI.Pages.Member
                 {
                     Date = DateTime.Now,
                     Message = Message,
-                    Username = user.UserName
+                    Username = user.UserName // <-2
                 };
 
                 await _messageRepository.AddMessageToDatabase(newMessage);
