@@ -11,19 +11,21 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 
-// Lägg till DbContext för identity users
+// LÃ¤gg till DbContext fÃ¶r identity users
 builder.Services.AddDbContext<AuthDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("UsersDB"), b => b.MigrationsAssembly("ChalkboardChat.UI")));
 
 // Konfigurera identity
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
-    .AddEntityFrameworkStores<AuthDbContext>(); // Använd AuthDbContext för att lagra identity users
+    .AddEntityFrameworkStores<AuthDbContext>(); // AnvÃ¤nd AuthDbContext fÃ¶r att lagra identity users
 
-// Lägg till DbContext för Messages
+// LÃ¤gg till DbContext fÃ¶r Messages
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("MessagesDB"), b => b.MigrationsAssembly("ChalkboardChat.UI")));
+options.UseSqlServer(builder.Configuration.GetConnectionString("MessagesDB"), b => b.MigrationsAssembly("ChalkboardChat.UI")));
 
-// Lägg till repository med dependency injection 
+
+
+// LÃ¤gg till repository med dependency injection 
 builder.Services.AddScoped<IRepositoryMessage, MessageRepository>();
 
 
