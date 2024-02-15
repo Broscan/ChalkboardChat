@@ -28,11 +28,6 @@ namespace ChalkboardChat.UI.Pages.Member
         public void OnGet()
         {
             _signInManager.UserManager.GetUserAsync(HttpContext.User);
-        }
-
-        public void OnPost()
-        {
-
             Username = User.Identity.Name;
         }
 
