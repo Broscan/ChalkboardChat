@@ -9,6 +9,7 @@ namespace ChalkboardChat.UI.Pages.Account
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
+        public string? ErrorMessage { get; set; }
         public string? Username { get; set; }
         public string? Password { get; set; }
 
@@ -17,9 +18,9 @@ namespace ChalkboardChat.UI.Pages.Account
             _userManager = userManager;
             _signInManager = signInManager;
         }
+
         public void OnGet()
         {
-            // hejj
         }
 
         public async Task<IActionResult> OnPost()
@@ -36,17 +37,12 @@ namespace ChalkboardChat.UI.Pages.Account
                 }
                 else
                 {
-                    // Fel lösenord eller username
-                    // Testar error message
-                    //TempData["error"] = "TEST ERROR MESSAGE";
-
+                    ErrorMessage = "Wrong username or password";
                 }
             }
 
             return Page();
         }
-
-
     }
 }
 

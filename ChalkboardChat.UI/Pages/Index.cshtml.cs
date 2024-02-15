@@ -7,7 +7,6 @@ namespace ChalkboardChat.UI.Pages
 
         public void OnGet()
         {
-            RedirectToPage("/Privacy");
 
         }
     }
