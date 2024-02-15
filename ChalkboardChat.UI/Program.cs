@@ -1,7 +1,4 @@
-using ChalkboardChat.App.Models;
-using ChalkboardChat.Data.AppDbContext;
-using ChalkboardChat.Data.AuthDbContext;
-using ChalkboardChat.Data.Repositories;
+
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 

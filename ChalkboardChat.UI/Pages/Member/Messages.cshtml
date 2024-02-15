@@ -1,6 +1,13 @@
 ﻿@page
+@using Microsoft.AspNetCore.Identity
 @model ChalkboardChat.UI.Pages.Member.MessagesModel
 @{
 }
+@inject SignInManager<IdentityUser> signedInUser
 
+@if (signedInUser.IsSignedIn(User))
+{
+    <div>
 
+    </div>
+}

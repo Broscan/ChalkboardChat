@@ -9,10 +9,7 @@
 	<input type="submit" value="Log In"/>
 </form>
 
-@*Testar*@
-@* @if (TempData["error"] != null)
-{
-    <p>@TempData["error"]</p>
-} *@
 
-
+<div class="alert-danger">
+<span>@Model.ErrorMessage</span>
+</div>
