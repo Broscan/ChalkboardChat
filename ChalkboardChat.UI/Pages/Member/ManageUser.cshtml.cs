@@ -1,9 +1,12 @@
 using Microsoft.AspNetCore.Identity;
+
 using Microsoft.AspNetCore.Mvc;
+
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace ChalkboardChat.UI.Pages.Member
 {
+
     public class ManageUserModel : PageModel
     {
         private readonly UserManager<IdentityUser> _userManager;
@@ -51,4 +54,5 @@ namespace ChalkboardChat.UI.Pages.Member
 
 
     }
+
 }

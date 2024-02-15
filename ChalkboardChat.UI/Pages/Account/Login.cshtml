@@ -7,10 +7,20 @@
 	<input type="text" placeholder="Username" asp-for="Username"/>
 	<input type="password" placeholder="Password" asp-for="Password"/>
 	<input type="submit" value="Log In"/>
+
+	<hr />
 </form>
 
 
 <div class="alert-danger">
 <span>@Model.ErrorMessage</span>
+
+	
 </div>
+
+
+<span>
+<button type="submit" class="btn btn-secondary" asp-page-handler="ChangeUaP">Change username and password?</button>
+
+</span>
 
