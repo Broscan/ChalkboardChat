@@ -10,7 +10,7 @@ builder.Services.AddRazorPages();
 
 // Lägg till DbContext för identity users
 builder.Services.AddDbContext<AuthDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("UsersDB")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("UsersDB"), b => b.MigrationsAssembly("ChalkboardChat.UI")));
 
 // Konfigurera identity
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
@@ -18,7 +18,7 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>()
 
 // Lägg till DbContext för Messages
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("MessagesDB")));
+options.UseSqlServer(builder.Configuration.GetConnectionString("MessagesDB"), b => b.MigrationsAssembly("ChalkboardChat.UI")));
 
 var app = builder.Build();
 
