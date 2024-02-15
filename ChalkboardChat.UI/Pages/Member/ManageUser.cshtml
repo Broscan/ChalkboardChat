@@ -2,3 +2,20 @@
 @model ChalkboardChat.UI.Pages.Member.ManageUserModel
 @{
 }
+
+
+<h1>Change username and password</h1>
+
+<div>
+    <form method="post">
+        <div class="form-group">
+            <label for="changeUsername">Change username:</label>
+            <input type="text" class="form-control" />
+        </div>
+        <div class="form-select-lg">
+            <label for="changePassword">Change Password:</label>
+            <input type="text" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-secondary">Confirm change</button>
+    </form>
+</div>
