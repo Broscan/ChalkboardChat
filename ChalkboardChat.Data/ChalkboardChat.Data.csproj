@@ -7,7 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+<<<<<<< HEAD
+=======
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+>>>>>>> 1906cbb55d98016e172e351e829fa0d2b5e36cb7
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.2">
