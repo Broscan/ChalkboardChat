@@ -1,4 +1,9 @@
+using ChalkboardChat.App.Models;
+using ChalkboardChat.Data.AppDbContext;
+using ChalkboardChat.Data.AuthDbContext;
+using ChalkboardChat.Data.Repositories;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +21,10 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>()
 // Lägg till DbContext för Messages
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("MessagesDB")));
+
+// Lägg till repository med dependency injection 
+builder.Services.AddScoped<IRepositoryMessage, MessageRepository>();
+
 
 var app = builder.Build();
 
