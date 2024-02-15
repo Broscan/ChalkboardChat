@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace ChalkboardChat.App.Models;
 
-namespace ChalkboardChat.App.Models
+public class Repository
 {
-    internal class Repository
-    {
-    }
+
 }
