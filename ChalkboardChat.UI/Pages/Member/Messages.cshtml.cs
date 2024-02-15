@@ -8,6 +8,8 @@ namespace ChalkboardChat.UI.Pages.Member
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
         public string? Username { get; set; }
+
+        // Denna property kanske inte behöver skickas med ?
         public string? Password { get; set; }
         public string? Message { get; set; }
 
@@ -26,6 +28,7 @@ namespace ChalkboardChat.UI.Pages.Member
         public void OnPost()
         {
 
+            Username = User.Identity.Name;
         }
     }
 }

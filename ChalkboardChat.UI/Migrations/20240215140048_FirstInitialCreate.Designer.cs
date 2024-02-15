@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ChalkboardChat.UI.Migrations
 {
     [DbContext(typeof(AuthDbContext))]
-    [Migration("20240215125527_initialcreate")]
-    partial class initialcreate
+    [Migration("20240215140048_FirstInitialCreate")]
+    partial class FirstInitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
