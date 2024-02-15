@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace ChalkboardChat.Data.Model
 {
-    internal class ChalkboardModel
+    public class ChalkboardModel
     {
+        [Key]
+        public int Id { get; set; }
+        public DateTime Date { get; set; }
+        public string Message { get; set; }
+        public string Username { get; set; }
     }
 }
