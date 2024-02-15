@@ -13,6 +13,8 @@ namespace ChalkboardChat.UI.Pages.Member
         private readonly IRepositoryMessage _messageRepository;
 
         public string? Username { get; set; }
+
+        // Denna property kanske inte behöver skickas med ?
         public string? Password { get; set; }
         [BindProperty]
         public string? Message { get; set; }
@@ -26,7 +28,12 @@ namespace ChalkboardChat.UI.Pages.Member
         public void OnGet()
         {
             _signInManager.UserManager.GetUserAsync(HttpContext.User);
+        }
 
+        public void OnPost()
+        {
+
+            Username = User.Identity.Name;
         }
 
         public async Task<IActionResult> OnPostAsync()
