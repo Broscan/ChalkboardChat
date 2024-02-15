@@ -3,5 +3,12 @@
     public class Manager
     {
 
+
+        public async Task ValidateUser(string username, string password)
+        {
+
+        }
+
+
     }
 }

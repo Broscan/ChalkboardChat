@@ -16,6 +16,7 @@ namespace ChalkboardChat.UI.Pages.Member
         public string? Password { get; set; }
         [BindProperty]
         public string? Message { get; set; }
+        public List<ChalkboardModel> Messages { get; set; }
 
         public MessagesModel(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, IRepositoryMessage messageRepository)
         {
@@ -23,15 +24,16 @@ namespace ChalkboardChat.UI.Pages.Member
             _signInManager = signInManager;
             _messageRepository = messageRepository;
         }
-        public void OnGet()
+        public async Task OnGetAsync()
         {
-            _signInManager.UserManager.GetUserAsync(HttpContext.User);
-
+            await _signInManager.UserManager.GetUserAsync(HttpContext.User);
+            // Hämta alla messages från databasen och displaya direct i onget
+            Messages = await _messageRepository.GetMessagesFromDatabase();
         }
 
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!string.IsNullOrEmpty(Message))
+            if (Message != null)
             {
                 var user = await _signInManager.UserManager.GetUserAsync(HttpContext.User);
 
