@@ -36,6 +36,10 @@ namespace ChalkboardChat.App.Models
             return await _context.Messages.FirstOrDefaultAsync(p => p.Id == id)!;
         }
 
+        public async Task<List<ChalkboardModel>> GetMessagesFromDatabase()
+        {
+            return await _context.Messages.ToListAsync();
+        }
 
     }
 

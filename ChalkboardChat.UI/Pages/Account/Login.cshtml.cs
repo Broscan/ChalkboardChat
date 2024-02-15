@@ -25,6 +25,13 @@ namespace ChalkboardChat.UI.Pages.Account
 
         public async Task<IActionResult> OnPost()
         {
+            // Fick null error innan, lade till en check
+            if (Username != null || Password != null)
+            {
+                ErrorMessage = "Username and password are required.";
+                return RedirectToPage("/Account/Login");
+            }
+
             IdentityUser? userToLogIn = await _userManager.FindByNameAsync(Username!);
 
             if (userToLogIn != null)
@@ -38,6 +45,7 @@ namespace ChalkboardChat.UI.Pages.Account
                 else
                 {
                     ErrorMessage = "Wrong username or password";
+                    return RedirectToPage("/Account/Login");
                 }
             }
 

@@ -1,4 +1,5 @@
 ﻿@page
+@using ChalkboardChat.Data.Model
 @using Microsoft.AspNetCore.Identity
 @model ChalkboardChat.UI.Pages.Member.MessagesModel
 @{
@@ -23,11 +24,22 @@
             <button type="submit" class="btn btn-primary">Post Message</button>
         </form>
     </div>
-  
-    @* foreach()
-    {
-    <div>  
+
+   
+
+  @*   Displaya dom i en div bara så länge *@
+
+    <div>
+        @foreach (var message in Model.Messages)
+        {
+            <div class="message">
+                <p>@message.Username:</p>
+                <p>@message.Message</p>
+                <hr />
+            </div>
+        }
     </div>
-    }*@
+
+
 }
 

@@ -6,5 +6,7 @@ namespace ChalkboardChat.Data.Repositories
     {
         Task AddMessageToDatabase(ChalkboardModel message);
         Task DeleteMessageFromDatabase(int id);
+        Task<ChalkboardModel> GetMessageByIdAsync(int id);
+        Task<List<ChalkboardModel>> GetMessagesFromDatabase();
     }
 }
