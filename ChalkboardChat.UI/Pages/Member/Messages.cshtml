@@ -5,9 +5,17 @@
 }
 @inject SignInManager<IdentityUser> signedInUser
 
+
+
 @if (signedInUser.IsSignedIn(User))
 {
     <div>
-
+        <form method="post">
+            <div class="form-group">
+                <label for="message">Enter your message:</label>
+                <input type="text" id="message" name="message" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-primary">Post Message</button>
+        </form>
     </div>
 }
