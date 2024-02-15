@@ -7,7 +7,8 @@
 
 @if (signedInUser.IsSignedIn(User))
 {
-    <div>
-
-    </div>
+    <form method="post">
+        <textarea name="message" placeholder="Enter your message"></textarea>
+        <button type="submit">Post Message</button>
+    </form>
 }
