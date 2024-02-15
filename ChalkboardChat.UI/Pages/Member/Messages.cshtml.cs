@@ -31,6 +31,10 @@ namespace ChalkboardChat.UI.Pages.Member
             await _signInManager.UserManager.GetUserAsync(HttpContext.User);
             // H�mta alla messages fr�n databasen och displaya direct i onget
             Messages = await _messageRepository.GetMessagesFromDatabase();
+            
+            // Fr�n Olivers Crypto
+            Messages = Messages.OrderByDescending(m => m.Date).ToList();
+
         }
 
         public async Task<IActionResult> OnPostAsync()
