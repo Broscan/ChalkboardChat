@@ -7,6 +7,6 @@
 
         }
 
-        public DbSet<MessageModel> Messages { get; set; }
+        public DbSet<ChalkboardModel> Messages { get; set; }
     }
 }
