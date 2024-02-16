@@ -39,7 +39,7 @@
             <div class="message bg-info">
                 <p>@message.Username:</p>
                 <p>@message.Message</p>
-
+                    <p>Time postef: @message.Date.ToString("yy-MM-dd HH:mm")</p>
                 <hr />
                 </div>
             }
@@ -55,6 +55,7 @@
         }
     </div>
 
+    <a asp-page="/Member/ManageUser">Go to Manage User</a>
 
 }
 
