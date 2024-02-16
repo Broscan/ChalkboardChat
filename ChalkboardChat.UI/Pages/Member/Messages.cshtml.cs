@@ -6,30 +6,16 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace ChalkboardChat.UI.Pages.Member
 {
-	public class MessagesModel : PageModel
-	{
-		private readonly UserManager<IdentityUser> _userManager;
-		private readonly SignInManager<IdentityUser> _signInManager;
-		private readonly IRepositoryMessage _messageRepository;
+    public class MessagesModel : PageModel
+    {
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly IRepositoryMessage _messageRepository;
 
-		public string? Username { get; set; }
-		[BindProperty]
-		public string? Message { get; set; }
-		public List<ChalkboardModel> Messages { get; set; }
-
-		public MessagesModel(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, IRepositoryMessage messageRepository)
-		{
-			_userManager = userManager;
-			_signInManager = signInManager;
-			_messageRepository = messageRepository;
-		}
-		public async Task OnGetAsync()
-		{
-			await _signInManager.UserManager.GetUserAsync(HttpContext.User);
-			// H�mta alla messages fr�n databasen och displaya direct i onget
-			Messages = await _messageRepository.GetMessagesFromDatabase();
-
-
+        public string? Username { get; set; }
+        [BindProperty]
+        public string? Message { get; set; }
+        public List<ChalkboardModel>? Messages { get; set; }
 
         public MessagesModel(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, IRepositoryMessage messageRepository)
         {
@@ -37,6 +23,7 @@ namespace ChalkboardChat.UI.Pages.Member
             _signInManager = signInManager;
             _messageRepository = messageRepository;
         }
+
         public async Task OnGetAsync()
         {
             var user = await _signInManager.UserManager.GetUserAsync(HttpContext.User);
@@ -50,13 +37,13 @@ namespace ChalkboardChat.UI.Pages.Member
             Messages = Messages.OrderByDescending(m => m.Date).ToList();
 
 
-		}
+        }
 
-		public async Task<IActionResult> OnPostAsync()
-		{
-			if (Message != null)
-			{
-				var user = await _signInManager.UserManager.GetUserAsync(HttpContext.User);
+        public async Task<IActionResult> OnPostAsync()
+        {
+            if (Message != null)
+            {
+                var user = await _signInManager.UserManager.GetUserAsync(HttpContext.User);
 
 
                 ChalkboardModel newMessage = new ChalkboardModel
@@ -67,18 +54,19 @@ namespace ChalkboardChat.UI.Pages.Member
                 };
 
 
-				await _messageRepository.AddMessageToDatabase(newMessage);
-			}
+                await _messageRepository.AddMessageToDatabase(newMessage);
+            }
 
-			return RedirectToPage("/Member/Messages");
-		}
+            return RedirectToPage("/Member/Messages");
+        }
 
-		public async Task<IActionResult> OnPostSignOut()
-		{
-			await _signInManager.SignOutAsync();
-			return RedirectToPage("/Account/Login");
-		}
+        public async Task<IActionResult> OnPostSignOut()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToPage("/Account/Login");
+        }
 
 
-	}
+    }
 }
+
