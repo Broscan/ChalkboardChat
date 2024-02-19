@@ -37,8 +37,6 @@ namespace ChalkboardChat.UI.Pages.Member
 
 			// Fr�n Olivers Crypto
 			Messages = Messages.OrderByDescending(m => m.Date).ToList();
-
-
 		}
 
 		public async Task<IActionResult> OnPostAsync()

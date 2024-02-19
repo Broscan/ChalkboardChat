@@ -14,19 +14,11 @@ namespace ChalkboardChat.App.Models
 			_context = context;
 		}
 
-
 		public async Task AddMessageToDatabase(ChalkboardModel message)
 		{
 			_context.Messages.Add(message);
 			await _context.SaveChangesAsync();
 		}
-
-		//public void UpdateUsername(IdentityUser identityUser)
-		//{
-		//    var updatedUsername = 
-
-
-		//}
 
 		public async Task DeleteMessageFromDatabase(int id)
 		{
