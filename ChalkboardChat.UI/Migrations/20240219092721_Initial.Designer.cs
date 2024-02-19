@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace ChalkboardChat.UI.Migrations.AppDb
+namespace ChalkboardChat.UI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240215134404_InitialCreat")]
-    partial class InitialCreat
+    [Migration("20240219092721_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,6 +37,10 @@ namespace ChalkboardChat.UI.Migrations.AppDb
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

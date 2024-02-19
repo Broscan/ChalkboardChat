@@ -3,10 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace ChalkboardChat.UI.Migrations
+namespace ChalkboardChat.UI.Migrations.AuthDb
 {
     /// <inheritdoc />
-    public partial class FirstInitialCreate : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
